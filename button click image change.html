@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-size: cover;
+        }
+        .fl{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 100px 0 0 400px;
+            display: flex;
+        }
+         .box{
+            border: 1px solid black;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+        </style>
+</head>
+<body>
+        <button class="Prev">Prev</button>
+        <button class="Next">Next</button>
+        <div class="fl">
+        <div class="box b1"><img src="images/1723562679119.png" alt=""></div>
+        <div class="box b2"><img src="images/wp5718362.jpg" alt=""></div>
+        <div class="box b3"><img src="images/pngtree-valentines-day-love-activity-background-map-picture-image_1240973.jpg" alt=""></div>
+        <div class="box b4"><img src="images/a7a57af2650f47d6845e2d0fd51f1313.jpg" alt=""></div>
+        <div class="box b5"><img src="images/pngtree-pink-gradient-hot-balloon-with-paper-cut-cloud-soft-and-background-picture-image_1368488.jpg" alt=""></div>
+    </div>
+    <script>
+        const box = document.querySelectorAll('.box');
+        const Next = document.querySelector('.Next');
+        const Prev = document.querySelector('.Prev');
+
+        var num = 0;
+
+        const update = () =>{
+         box.forEach((item,index)=>{
+            item.classList.toggle('active',index == num);
+        })}
+
+        Next.addEventListener('click',()=> {
+            if(num<4){
+            num +=1;
+            update();
+            }else
+            {
+                num = 0;
+                update();
+            }
+        })
+
+        Prev.addEventListener('click',()=> {
+            if(num>0)
+        {
+            num -=1;
+            update();   
+        }else{
+            num = 4;
+        }
+        })
+      
+        update();
+    </script>
+</body>
+</html>
