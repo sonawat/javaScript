@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href="style.css"/>
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#c1{background-image: url("images/nature-phone-gru786336nspczhn.jpg");}
+#c2{background-image: url("images/lovepik-mountain-hot-air-balloon-wallpaper-background-image_400258349.jpg");}
+#c3{background-image: url("images/pngtree-heart-shaped-rainbow-color-paper-cut-hot-air-balloon-cloud-background-picture-image_1445416.jpg");}
+#c4{background-image: url("images/pngtree-pink-gradient-hot-balloon-with-paper-cut-cloud-soft-and-background-picture-image_1368488.jpg");}
+#c5{background-image: url("images/pngtree-valentines-day-love-activity-background-map-picture-image_1240973.jpg");}
+
+.container{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.city{
+    width: 20%;
+    margin: 20px;
+    height: 90vh;
+    border: 4px solid black;
+    flex: 1;
+    filter: grayscale(1);
+    transition: 1s ;
+    background: white no-repeat scroll center;
+    object-fit: cover;
+    background-size: cover;
+}
+.active{
+    flex: 3;
+    filter: grayscale(0);
+}
+
+.city h3{
+text-align: center;
+color: white;
+padding: 10px;
+background-color: rgba(0, 0, 0, 0.6);
+}
+    </style>
+</head>
+<body>
+ <div class="container">
+    <div class="city active" id="c1" >
+        <h3>Paris</h3>
+    </div>
+    <div class="city" id="c2" >
+        <h3>Dubai</h3>
+    </div>
+    <div class="city" id="c3">
+        <h3>NewYork</h3>
+    </div>
+    <div class="city" id="c4">
+        <h3>Landon</h3>
+    </div>
+    <div class="city" id="c5">
+        <h3>Mumbai</h3>
+    </div>
+ </div>
+</body>
+<script>
+    const city = document.querySelectorAll('.city');
+
+    const remove = () =>{
+    city.forEach(item => {
+        item.classList.remove('active');
+    })
+}
+
+    city.forEach(item => {
+    item.addEventListener('click',()=>{
+        remove();
+            item.classList.add('active');
+    })
+    });
+</script>
+</html>
