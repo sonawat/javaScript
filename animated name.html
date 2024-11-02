@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.a{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.echo,.ech{
+    font-size: 40px;
+    color: red;
+
+}
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div>
+            <p class="echo">Jai Mata Di</p>
+        </div>
+    </div>
+</body>
+<script>
+    const p = document.querySelector('.echo');
+    const msg = p.textContent;  
+
+    let i = 0;
+   
+    setInterval(()=>
+{
+    if(i<msg.length)
+{
+    console.log(msg.substring(0,i));
+    i++;
+    p.textContent = msg.substring(0,i)
+}
+else{
+    i = 0;
+}
+},100);
+    
+</script>
+</html>
