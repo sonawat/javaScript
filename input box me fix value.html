@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .con{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            box-shadow: 0 0 10px silver;
+            padding: 13px;
+        }
+        input{
+            font-size: 30px;
+            padding: 5px;
+            width: 100%;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="box">
+            <input type="number" class="t">
+            <input type="text" class="r" readonly></div>
+    </div>
+
+    <script>
+        const t = document.querySelector('.t');
+        const r = document.querySelector('.r');
+    
+        t.addEventListener('input',()=>{
+            var data = t.value;
+            var s = 0;
+            for(var i=0;i<data.length;i++)
+        {
+             s += Number(data[i]);         
+        }
+    
+        const a = data.slice(0,1);
+        const b = data.slice(3,4);
+       
+        if(data.length = 4){
+            t.value = data.slice(0,4);  
+            
+            console.log("on");
+            
+        
+        }
+
+        if(data.length == 4){
+            if(a>b){
+             r.value = "Vija";
+         }else{
+             r.value = "Mast";
+         }
+        }
+        })
+        
+
+    </script>
+</body>
+</html>
