@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Generatore</title>
+    <link rel="stylesheet" href="captcha.css">
+    <style>
+        *
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.box
+{
+    height: 300px;
+    width: 500px;
+    
+    background-color: aquamarine;
+    margin:100px auto;
+    border: 3px solid black;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+
+}
+table,input{
+    width: 90%;
+    padding: 15px;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Captcha Generatore</h1>
+        <table>
+            <tr>
+                <th colspan="2" id="ch"></th>
+            </tr>
+            <tr>
+                <th colspan="2">
+            <input type="text" placeholder="Enter Your Captcha" id="input">
+        </th>
+            </tr>
+            <tr><th><input type="button" value="submit" id="sub"></th>
+            <th><input type="button" value="refresh" id="ref"></th></tr>
+            
+
+        </table>
+    </div>
+</body>
+<script>
+    var y=document.querySelector("#ch");
+var z=document.querySelector("#input");
+var w=document.querySelector("#sub");
+var u=document.querySelector("#ref");
+w.addEventListener('click', ()=>
+{
+     let m=z.value;
+     let n=y.textContent.trim();
+     if(m==n)
+     {
+        // alert("captha is Right")
+        // window.location.href='https://www.google.com/search?q=google.com&sca_esv=7d1f27745d5df1d9&sxsrf=ADLYWIJ67EQhOcjYJLSMrfH-gSYUIVAIWg%3A1729063593939&source=hp&ei=qWoPZ7bMN_X41e8PsoCeiQY&iflsig=AL9hbdgAAAAAZw94uQbEp-hyYA79Fd_VEedK3n6nwkkm&ved=0ahUKEwj2xLzqr5KJAxV1fPUHHTKAJ2EQ4dUDCBY&oq=&gs_lp=Egdnd3Mtd2l6IgAqAggAMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSMMNUABYAHABeACQAQCYAQCgAQCqAQC4AQHIAQCYAgGgAgqoAgqYAwqSBwExoAcA&sclient=gws-wiz';
+        window.location.href="task2.html";
+    }
+     else{
+        alert("wrong Captcha")
+        z.value="";
+        createcaptcha();
+     }
+});
+u.addEventListener('click', ()=>
+{
+    createcaptcha();
+});
+function createcaptcha()
+{
+    let data="";
+    var x="ABCDEFGHIJKLMNOQRTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+    for(i=0;i<6;i++)
+    {
+   data +=""+x[Math.floor(Math.random()*x.length)];
+    }
+    y.innerHTML=data;
+}
+createcaptcha();
+</script>
+</html>
